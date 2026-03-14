@@ -1,9 +1,11 @@
 # Adonis Lucid Filter
-> Works with AdonisJS v6
+
+> Works with AdonisJS v7
 
 [![npm-image]][npm-url] [![license-image]][license-url] [![typescript-image]][typescript-url]
 
 This addon adds the functionality to filter Lucid Models
+
 > Inspired by [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
 
 ## Versions
@@ -14,17 +16,18 @@ This addon adds the functionality to filter Lucid Models
 |-------------------------------------|---------------------|
 | ^5.\*.*                             | ^20.\*.*            |
 | ^4.\*.*                             | <=18.\*.*           |
-| ^3.\*.* (`@filterable()` decorator) | ^15.\*.*            |
+| ^3.\*.* ( `@filterable()` decorator) | ^15.\*.*            |
 | ^2.\*.*                             | 14.\*.*             |
 
-- Docs [for **Adonis v5**](https://github.com/lookinlab/adonis-lucid-filter/tree/v4)
-- Docs [for **Adonis v4**](https://github.com/lookinlab/adonis-lucid-filter/tree/v1)
-- Docs [for `@filterable()` decorator](https://github.com/lookinlab/adonis-lucid-filter/tree/v3)
+* Docs [for **Adonis v5**](https://github.com/lookinlab/adonis-lucid-filter/tree/v4)
+* Docs [for **Adonis v4**](https://github.com/lookinlab/adonis-lucid-filter/tree/v1)
+* Docs [for `@filterable()` decorator](https://github.com/lookinlab/adonis-lucid-filter/tree/v3)
 
 ## Introduction
+
 Example, we want to return a list of users filtered by multiple parameters. When we navigate to:
 
-`/users?name=Tony&lastName=&companyId=2&industry=5`
+ `/users?name=Tony&lastName=&companyId=2&industry=5`
 
 `request.all()` or `request.qs()` will return:
 
@@ -79,7 +82,7 @@ export default class UsersController {
 
 ## Installation
 
-Make sure to install it using `npm`, `yarn` or `pnpm`.
+Make sure to install it using `npm` , `yarn` or `pnpm` .
 
 ```bash
 # npm
@@ -92,7 +95,7 @@ yarn add adonis-lucid-filter
 pnpm add adonis-lucid-filter
 ```
 
-After install call `configure`:
+After install call `configure` :
 
 ```bash
 node ace configure adonis-lucid-filter
@@ -114,6 +117,7 @@ commands: [
 ```
 
 ### Generating The Filter
+
 > Only available if you have added `adonis-lucid-filter/commands` in `commands` array in your `adonisrc.ts'
 
 You can create a model filter with the following ace command:
@@ -125,15 +129,16 @@ node ace make:filter user
 Where `user` is the Lucid Model you are creating the filter for. This will create `app/models/filters/user_filter.js`
 
 ### Defining The Filter Logic
+
 Define the filter logic based on the camel cased input key passed to the `filter()` method.
 
-- Empty strings are ignored
-- `setup()` will be called regardless of input
-- `_id` is dropped from the end of the input to define the method so filtering `user_id` would use the `user()` method
-- Input without a corresponding filter method are ignored
-- The value of the key is injected into the method
-- All values are accessible through the `this.$input` a property
-- All QueryBuilder methods are accessible in `this.$query` object in the model filter class.
+* Empty strings are ignored
+* `setup()` will be called regardless of input
+* `_id` is dropped from the end of the input to define the method so filtering `user_id` would use the `user()` method
+* Input without a corresponding filter method are ignored
+* The value of the key is injected into the method
+* All values are accessible through the `this.$input` a property
+* All QueryBuilder methods are accessible in `this.$query` object in the model filter class.
 
 To define methods for the following input:
 
@@ -188,12 +193,14 @@ Those methods are normally used for internal filter logic.
 The `whitelistMethod()` methods can be used to dynamically blacklist methods.
 
 Example:
+
 ```ts
 setup($query) {
   this.whitelistMethod('secretMethod')
   this.$query.where('is_admin', true)
 }
 ```
+
 > `setup()` not may be async
 
 > **Note:** All methods inside `setup()` will be called every time `filter()` is called on the model
@@ -273,7 +280,7 @@ export default class UsersController {
 
 ### Filtering relations
 
-For filtering relations of model may be use `.query().filter()` or scope `filtration`, example:
+For filtering relations of model may be use `.query().filter()` or scope `filtration` , example:
 
 ```ts
 import type { HttpContext } from '@adonisjs/core/http'
