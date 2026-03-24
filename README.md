@@ -1,6 +1,6 @@
-# Adonis Lucid Filter
+# @codenameryuu/adonis-lucid-filter
 
-> Works with AdonisJS v6
+> Works with Adonis JS V7
 
 [![npm-image]][npm-url] [![license-image]][license-url] [![typescript-image]][typescript-url]
 
@@ -8,26 +8,11 @@ This addon adds the functionality to filter Lucid Models
 
 > Inspired by [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
 
-## Versions
-
-> **Note**: Check before install :point_down:
-
-| adonis-lucid-filter                  | @adonisjs/lucid |
-| ------------------------------------ | --------------- |
-| ^5.\*.\*                             | ^20.\*.\*       |
-| ^4.\*.\*                             | <=18.\*.\*      |
-| ^3.\*.\* (`@filterable()` decorator) | ^15.\*.\*       |
-| ^2.\*.\*                             | 14.\*.\*        |
-
-- Docs [for **Adonis v5**](https://github.com/lookinlab/adonis-lucid-filter/tree/v4)
-- Docs [for **Adonis v4**](https://github.com/lookinlab/adonis-lucid-filter/tree/v1)
-- Docs [for `@filterable()` decorator](https://github.com/lookinlab/adonis-lucid-filter/tree/v3)
-
 ## Introduction
 
 Example, we want to return a list of users filtered by multiple parameters. When we navigate to:
 
-`/users?name=Tony&lastName=&companyId=2&industry=5`
+ `/users?name=Tony&lastName=&companyId=2&industry=5`
 
 `request.all()` or `request.qs()` will return:
 
@@ -80,43 +65,36 @@ export default class UsersController {
 
 ## Installation
 
-Make sure to install it using `npm`, `yarn` or `pnpm`.
+* Install the package
 
 ```bash
-# npm
-npm i adonis-lucid-filter
-
-# yarn
-yarn add adonis-lucid-filter
-
-# pnpm
-pnpm add adonis-lucid-filter
+yarn add @codenameryuu/adonis-lucid-filter
 ```
 
-After install call `configure`:
+* Configure the package
 
 ```bash
-node ace configure adonis-lucid-filter
+node ace configure @codenameryuu/adonis-lucid-filter
 ```
 
 ## Usage
 
-Make sure to register the provider and commands inside `adonisrc.ts` file.
+* Register the provider and commands inside `adonisrc.ts` file.
 
 ```ts
 providers: [
   // ...
-  () => import('adonis-lucid-filter/provider'),
+  () => import('@codenameryuu/adonis-lucid-filter/provider'),
 ],
 commands: [
   // ...
-  () => import('adonis-lucid-filter/commands')
+  () => import('@codenameryuu/adonis-lucid-filter/commands')
 ]
 ```
 
 ### Generating The Filter
 
-> Only available if you have added `adonis-lucid-filter/commands` in `commands` array in your `adonisrc.ts'
+> Only available if you have added `@codenameryuu/adonis-lucid-filter/commands` in `commands` array in your `adonisrc.ts'
 
 You can create a model filter with the following ace command:
 
@@ -130,13 +108,13 @@ Where `user` is the Lucid Model you are creating the filter for. This will creat
 
 Define the filter logic based on the camel cased input key passed to the `filter()` method.
 
-- Empty strings are ignored
-- `setup()` will be called regardless of input
-- `_id` is dropped from the end of the input to define the method so filtering `user_id` would use the `user()` method
-- Input without a corresponding filter method are ignored
-- The value of the key is injected into the method
-- All values are accessible through the `this.$input` a property
-- All QueryBuilder methods are accessible in `this.$query` object in the model filter class.
+* Empty strings are ignored
+* `setup()` will be called regardless of input
+* `_id` is dropped from the end of the input to define the method so filtering `user_id` would use the `user()` method
+* Input without a corresponding filter method are ignored
+* The value of the key is injected into the method
+* All values are accessible through the `this.$input` a property
+* All QueryBuilder methods are accessible in `this.$query` object in the model filter class.
 
 To define methods for the following input:
 
@@ -276,7 +254,7 @@ export default class UsersController {
 
 ### Filtering relations
 
-For filtering relations of model may be use `.query().filter()` or scope `filtration`, example:
+For filtering relations of model may be use `.query().filter()` or scope `filtration` , example:
 
 ```ts
 import type { HttpContext } from '@adonisjs/core/http'

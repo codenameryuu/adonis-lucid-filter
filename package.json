@@ -1,7 +1,14 @@
 {
   "name": "@codenameryuu/adonis-lucid-filter",
   "description": "Addon for filtering Adonis JS 7 Lucid ORM",
-  "version": "2.4.0",
+  "version": "2.5.0",
+  "author": "codenameryuu",
+  "license": "MIT",
+  "homepage": "https://github.com/codenameryuu/adonis-lucid-filter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codenameryuu/adonis-lucid-filter.git"
+  },
   "engines": {
     "node": ">=24.0.0"
   },
@@ -73,16 +80,6 @@
   "peerDependencies": {
     "@adonisjs/core": "^7.0.0",
     "@adonisjs/lucid": "^22.0.0"
-  },
-  "author": "LookinGit",
-  "license": "MIT",
-  "homepage": "https://github.com/lookinlab/adonis-lucid-filter#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/lookinlab/adonis-lucid-filter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/lookinlab/adonis-lucid-filter/issues"
   },
   "keywords": [
     "adonisjs",
