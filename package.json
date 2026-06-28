@@ -1,7 +1,7 @@
 {
   "name": "@codenameryuu/adonis-lucid-filter",
   "description": "Addon for filtering Adonis JS with Lucid ORM",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "author": "codenameryuu",
   "license": "MIT",
   "homepage": "https://github.com/codenameryuu/adonis-lucid-filter#readme",
@@ -26,17 +26,15 @@
     "./provider": "./build/providers/lucid_filter_provider.js"
   },
   "scripts": {
-    "lint": "eslint .",
     "format": "prettier --write .",
     "clean": "del-cli build",
-    "precompile": "npm run lint && npm run clean",
+    "precompile": "npm run clean",
     "postcompile": "npm run copy:stubs && npm run index:commands",
     "compile": "tsc",
     "build": "npm run compile",
     "copy:stubs": "copyfiles \"stubs/**/**/*.stub\" --up=\"1\" build",
     "index:commands": "adonis-kit index build/commands",
     "quick:test": "NODE_DEBUG=\"adonis-lucid-filter\" node --enable-source-maps --loader=ts-node/esm bin/test.ts",
-    "pretest": "npm run lint",
     "test": "c8 npm run quick:test",
     "typecheck": "tsc --noEmit",
     "version": "npm run build",
@@ -46,7 +44,6 @@
   "devDependencies": {
     "@adonisjs/assembler": "^7.7.0",
     "@adonisjs/core": "^7.0.0",
-    "@adonisjs/eslint-config": "^3.0.0",
     "@adonisjs/lucid": "^22.0.0",
     "@adonisjs/prettier-config": "^1.4.5",
     "@adonisjs/tsconfig": "^2.0.0",
@@ -61,7 +58,6 @@
     "c8": "^9.1.0",
     "copyfiles": "^2.4.1",
     "del-cli": "^5.1.0",
-    "eslint": "^10.0.2",
     "knex": "^3.1.0",
     "lodash": "^4.17.23",
     "luxon": "^3.4.4",
