@@ -1,8 +1,8 @@
 {
     "name": "@codenameryuu/adonis-lucid-filter",
     "description": "Addon for filtering Adonis JS with Lucid ORM",
-    "version": "3.2.4",
-    "author": "codenameryuu",
+    "version": "3.2.5",
+    "author": "codenameryuu <leaderballon@gmail.com>",
     "license": "MIT",
     "homepage": "https://github.com/codenameryuu/adonis-lucid-filter#readme",
     "repository": {
