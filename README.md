@@ -36,13 +36,22 @@ commands: [
 
 ## Usage
 
+Make sure in `package.json` file, in `imports` section, you have the following:
+
+```json
+"imports": {
+  // ...
+  "#filters/*": "./app/filters/*.ts"
+}
+```
+
 You can create a model filter with the following ace command:
 
 ```bash
 node ace make:filter product
 ```
 
-Where `product` is the Lucid Model you are creating the filter for. This will create `app/models/filters/product_filter.ts`
+Where `product` is the Lucid Model you are creating the filter for. This will create `app/filters/product_filter.ts`
 
 ### Defining The Filter Logic
 
@@ -136,7 +145,7 @@ In order to call this method it would need to be whitelisted dynamically:
 import { compose } from '@adonisjs/core/helpers'
 import { Filterable } from '@codenameryuu/adonis-lucid-filter'
 
-import ProductFilter from '#models/filters/product_filter'
+import ProductFilter from '#filters/product_filter'
 
 export default class Product extends compose(BaseModel, Filterable) {
   static $filter = () => ProductFilter
@@ -171,8 +180,8 @@ Defining a filter dynamically will take precedent over any other filters defined
 
 ```typescript
 import type { HttpContext } from '@adonisjs/core/http'
-import ProductFilter from '#models/filters/product_filter'
-import ProductExclusiveFilter from '#models/filters/product_exclusive_filter'
+import ProductFilter from '#filters/product_filter'
+import ProductExclusiveFilter from '#filters/product_exclusive_filter'
 
 export default class ProductsController {
   async index({ request, auth }: HttpContext): Promise<Product[]> {
