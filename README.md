@@ -145,9 +145,11 @@ In order to call this method it would need to be whitelisted dynamically:
 import { compose } from '@adonisjs/core/helpers'
 import { Filterable } from '@codenameryuu/adonis-lucid-filter'
 
+import { ProductSchema } from "#database/schema";
+
 import ProductFilter from '#filters/product_filter'
 
-export default class Product extends compose(BaseModel, Filterable) {
+export default class Product extends compose(ProductSchema, Filterable) {
   static $filter = () => ProductFilter
 
   // ...columns and props
